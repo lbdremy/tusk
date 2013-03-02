@@ -1,0 +1,23 @@
+{
+  "name": "tusk",
+  "version": "0.0.0",
+  "description": "Documentation generator tool for node.js libraries",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lbdremy/tusk.git"
+  },
+  "keywords": [
+    "documentation",
+    "generator"
+  ],
+  "author": "Remy Loubradou <remyloubradou@gmail.com>",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}
