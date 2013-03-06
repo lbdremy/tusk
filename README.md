@@ -2,13 +2,18 @@
 
 ## Features
 
+
+## Ideas of features
+
 - code documentation
 - code coverage documentation
 - test suite documentation
 - code complexity documentation
-- README.md as main page of the documentation
+- README.md as the index page of the documentation
+- CHANGELOG file is imported in the index page
 - files in example[s] are used as sample in the documentation
 - travis badge
+- twitter button
 - github buttons
 - SEO friendly
 
