@@ -19,5 +19,10 @@
   ],
   "author": "Remy Loubradou <remyloubradou@gmail.com>",
   "license": "MIT",
-  "readmeFilename": "README.md"
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "marked": "~0.2.8",
+    "highlight.js": "~7.3.0",
+    "dox": "~0.4.2"
+  }
 }
