@@ -23,6 +23,13 @@
   "dependencies": {
     "marked": "~0.2.8",
     "highlight.js": "~7.3.0",
-    "dox": "~0.4.2"
+    "dox": "~0.4.2",
+    "optimist": "~0.3.5",
+    "consolidate": "~0.8.0",
+    "jade": "~0.28.2",
+    "step": "0.0.5"
+  },
+  "bin": {
+    "tusk": "bin/tusk.js"
   }
 }
