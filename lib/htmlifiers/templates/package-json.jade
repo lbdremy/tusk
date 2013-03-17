@@ -1,15 +1,15 @@
 h1.module-name= name
 
-- if (description)
+- if (locals.description)
 	p
 		b.module-description= description
 - if (author || license || version)
 	p
-		- if (version)
+		- if (locals.version)
 			span.module-version version !{version}
 		&nbsp;
-		- if (author)
+		- if (locals.author)
 			span.module-author by !{author}
 		&nbsp;
-		- if (license)
+		- if (locals.license)
 			span.module-licence licensed under !{license}
