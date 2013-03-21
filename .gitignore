@@ -1,3 +1,5 @@
 node_modules
 all.json
 lib/all.js
+index.html
+test/all-comment-style.js
