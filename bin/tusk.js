@@ -7,6 +7,12 @@
 var tusk = require('./../'),
 	optimist = require('optimist');
 
+// Default styles and scripts
+var defaultStyles = __dirname + '/../lib/assets/stylesheets/normalize.css,'
+    + __dirname + '/../lib/assets/stylesheets/simplegrid.css,'
+    + __dirname  + '/../lib/assets/stylesheets/github-markdown.css';
+var defaultScripts = __dirname + '/../lib/assets/scripts/script.js';
+
 // Build the command line tool and parse the arguments
 var argv = optimist
 	.usage('Usage: $0 [--input=FOLDER] [options]')
@@ -19,13 +25,13 @@ var argv = optimist
     .alias('h','help')
     .boolean('help')
     .default('input',process.cwd())
-    .default('styles','')
-    .default('scripts','')
+    .default('styles',defaultStyles)
+    .default('scripts',defaultScripts)
     .argv;
 
 // Show the help
 if(argv.help){
-    process.stdout.write(optimist.help());
+    console.log(optimist.help());
     process.exit(0);
 }
 
