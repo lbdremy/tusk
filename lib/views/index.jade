@@ -3,6 +3,9 @@ extends layout
 block left
 	.markdown-body
 		!{showcase}
+		-if (githubButtons)
+			.github-buttons
+				!{githubButtons}
 		!{menu}
 
 block right
