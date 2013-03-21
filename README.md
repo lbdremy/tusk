@@ -21,7 +21,13 @@
 
 ```sh
 $ tusk --help
-Usage: tusk ...
+Usage: tusk [--input=FOLDER] [options]
+
+Options:
+  --input, -i  use the files contained in FOLDER to generate the documentation  [default: "/home/lbdremy/workspace/nodejs/tusk"]
+  --styles     use the FILE(s) as the css file of the site                      [default: "/home/lbdremy/workspace/nodejs/tusk/bin/../lib/assets/stylesheets/normalize.css,/home/lbdremy/workspace/nodejs/tusk/bin/../lib/assets/stylesheets/simplegrid.css,/home/lbdremy/workspace/nodejs/tusk/bin/../lib/assets/stylesheets/github-markdown.css"]
+  --scripts    use the FILE(s) as the javascript script(s) of the site          [default: "/home/lbdremy/workspace/nodejs/tusk/bin/../lib/assets/scripts/script.js"]
+  --help, -h   show the help                                                    [boolean]
 ```
 
 ## Licence
