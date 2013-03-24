@@ -1,20 +1,22 @@
 - for comment in comments
-	h4= comment.resume.name
-	p= comment.resume.description
-	br
-	pre
-		code(class="language-javascript") !{comment.resume.code}
-	- if (comment.resume.parameters.length !== 0)
-		p
-			b Parameters:
-			br
-			ul
-				- for parameter in comment.resume.parameters
-					li= parameter
-	- if (comment.resume.returns)
-		p
-			b Returns:
-			br
-			ul
-				li= comment.resume.returns
+	- if(comment.ignore === false)
+		h4= comment.resume.name
+		div
+			!{comment.resume.description}
+		br
+		pre
+			code(class="language-javascript") !{comment.resume.code}
+		- if (comment.resume.parameters.length !== 0)
+			p
+				b Parameters:
+				br
+				ul
+					- for parameter in comment.resume.parameters
+						li= parameter
+		- if (comment.resume.returns)
+			p
+				b Returns:
+				br
+				ul
+					li= comment.resume.returns
 
