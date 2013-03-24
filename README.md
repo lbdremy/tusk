@@ -2,20 +2,23 @@
 
 ## Features
 
+- use the README, LICENCE files
+- code documentation
+- tweet button
+- github buttons
+- SEO friendly (send pull request to improve it :) )
+- support google analytics
+- support custom stylesheets and scripts
 
 ## Ideas of features
 
-- code documentation
 - code coverage documentation
 - test suite documentation
 - code complexity documentation
-- README.md as the index page of the documentation
-- CHANGELOG file is imported in the index page
-- files in example[s] are used as sample in the documentation
+- use the CHANGELOG file
+- files in the example[s] folder are used as samples in the documentation
 - travis badge
-- twitter button
-- github buttons
-- SEO friendly
+- gemnasium badge
 
 ## Usage
 
@@ -28,6 +31,16 @@ Options:
   --styles     use the FILE(s) as the css file of the site                      [default: "/home/lbdremy/workspace/nodejs/tusk/bin/../lib/assets/stylesheets/normalize.css,/home/lbdremy/workspace/nodejs/tusk/bin/../lib/assets/stylesheets/simplegrid.css,/home/lbdremy/workspace/nodejs/tusk/bin/../lib/assets/stylesheets/github-markdown.css"]
   --scripts    use the FILE(s) as the javascript script(s) of the site          [default: "/home/lbdremy/workspace/nodejs/tusk/bin/../lib/assets/scripts/script.js"]
   --help, -h   show the help                                                    [boolean]
+```
+
+Configuration file `.tusk.json`:
+(it should be in the root directory of your module)
+
+```json
+{
+	"google-analytics-id" : "UA-XXXXXXXXXXX",
+	"twitter-user" : "username"
+}
 ```
 
 ## Licence
