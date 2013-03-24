@@ -19,7 +19,7 @@
 
 ## Usage
 
-```sh
+```bash
 $ tusk --help
 Usage: tusk [--input=FOLDER] [options]
 
