@@ -1,7 +1,6 @@
 node_modules
 all.json
 lib/all.js
-index.html
 test/all-comment-style.js
 test/readAtLeastOneFile.js
 test/cheerio-remove.js
