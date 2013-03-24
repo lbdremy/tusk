@@ -1,0 +1,829 @@
+<!DOCTYPE html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>tusk</title><meta name="title" content="tusk"><meta name="description" content="Documentation generator tool for node.js libraries"><meta name="author" content="Remy Loubradou"><meta name="keywords" content="documentation,generator,tusk"><meta property="og:title" content="tusk"><meta property="og:type" content="website"><meta property="og:description" content="Documentation generator tool for node.js libraries"><style>/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em;margin:0.67em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}pre{white-space:pre-wrap}q{quotes:&quot;\201C&quot; &quot;\201D&quot; &quot;\2018&quot; &quot;\2019&quot;}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{border:0;padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button,select{text-transform:none}button,html input[type=&quot;button&quot;],input[type=&quot;reset&quot;],input[type=&quot;submit&quot;]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}input[type=&quot;checkbox&quot;],input[type=&quot;radio&quot;]{box-sizing:border-box;padding:0}input[type=&quot;search&quot;]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=&quot;search&quot;]::-webkit-search-cancel-button,input[type=&quot;search&quot;]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}*,*:after,*:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}body{margin:0}[class*='col-']{float:left;padding-right:20px}[class*='col-']:last-of-type{padding-right:0}.grid{width:100%;max-width:1140px;min-width:755px;margin:0 auto;overflow:hidden}.grid:after{content:&quot;&quot;;display:table;clear:both}.grid-pad{padding:20px 0 0 20px}.grid-pad &gt; [class*='col-']:last-of-type{padding-right:20px}.push-right{float:right}.col-1-1{width:100%}.col-2-3,.col-8-12{width:66.66%}.col-1-2,.col-6-12{width:50%}.col-1-3,.col-4-12{width:33.33%}.col-1-4,.col-3-12{width:25%}.col-1-5{width:20%}.col-1-6,.col-2-12{width:16.667%}.col-1-7{width:14.28%}.col-1-8{width:12.5%}.col-1-9{width:11.1%}.col-1-10{width:10%}.col-1-11{width:9.09%}.col-1-12{width:8.33%}.col-11-12{width:91.66%}.col-10-12{width:83.333%}.col-9-12{width:75%}.col-5-12{width:41.66%}.col-7-12{width:58.33%}@media handheld,only screen and (max-width:767px){.grid{width:100%;min-width:0;margin-left:0;margin-right:0;padding-left:0;padding-right:0}[class*='col-']{width:auto;float:none;margin-left:0;margin-right:0;margin-top:10px;margin-bottom:10px;padding-left:20px;padding-right:20px}}*{margin:0;padding:0}html,body{color:#333}body{font:13.34px helvetica,arial,freesans,clean,sans-serif;line-height:1.4}img{border:0}a{color:#4183C4;text-decoration:none}a.absent{color:#c00}.markdown-body a[id].wiki-toc-anchor{color:inherit;text-decoration:none}.markdown-body{font-size:14px;line-height:1.6}.markdown-body&gt;*:first-child{margin-top:0!important}.markdown-body&gt;*:last-child{margin-bottom:0!important}.markdown-body a.absent{color:#c00}.markdown-body a.anchor{display:block;padding-left:30px;margin-left:-30px;cursor:pointer;position:absolute;top:0;left:0;bottom:0}.markdown-body h1,.markdown-body h2,.markdown-body h3,.markdown-body h4,.markdown-body h5,.markdown-body h6{margin:20px 0 10px;padding:0;font-weight:bold;-webkit-font-smoothing:antialiased;cursor:text;position:relative}.markdown-body h1:hover a.anchor,.markdown-body h2:hover a.anchor,.markdown-body h3:hover a.anchor,.markdown-body h4:hover a.anchor,.markdown-body h5:hover a.anchor,.markdown-body h6:hover a.anchor{background:url(../images/pin-20.png) no-repeat left center;text-decoration:none}.markdown-body h1 tt,.markdown-body h1 code,.markdown-body h2 tt,.markdown-body h2 code,.markdown-body h3 tt,.markdown-body h3 code,.markdown-body h4 tt,.markdown-body h4 code,.markdown-body h5 tt,.markdown-body h5 code,.markdown-body h6 tt,.markdown-body h6 code{font-size:inherit}.markdown-body h1{font-size:28px;color:#000;margin-top:20px;margin-bottom:10px}.markdown-body h2{font-size:24px;border-bottom:1px solid #ccc;color:#000}.markdown-body h3{font-size:18px}.markdown-body h4{font-size:16px}.markdown-body h5{font-size:14px}.markdown-body h6{color:#777;font-size:14px}.markdown-body p,.markdown-body blockquote,.markdown-body ul,.markdown-body ol,.markdown-body dl,.markdown-body table,.markdown-body pre{margin:0 0;margin-bottom:15px}.markdown-body li{margin:0}.markdown-body hr{background:transparent url(../images/dirty-shade.png) repeat-x 0 0;border:0 none;color:#ccc;height:4px;padding:0}.markdown-body&gt;h1:first-child,.markdown-body&gt;h2:first-child,.markdown-body&gt;h3:first-child,.markdown-body&gt;h4:first-child,.markdown-body&gt;h5:first-child,.markdown-body&gt;h6:first-child{}.markdown-body h1+h2+h3{margin-top:30px}.markdown-body a:first-child h1,.markdown-body a:first-child h2,.markdown-body a:first-child h3,.markdown-body a:first-child h4,.markdown-body a:first-child h5,.markdown-body a:first-child h6{margin-top:0;padding-top:0}.markdown-body h1+p,.markdown-body h2+p,.markdown-body h3+p,.markdown-body h4+p,.markdown-body h5+p,.markdown-body h6+p{margin-top:0}.markdown-body li p.first{display:inline-block}.markdown-body ul,.markdown-body ol{padding-left:30px}.markdown-body ul li&gt;:first-child,.markdown-body ol li&gt;:first-child{margin-top:0}.markdown-body ul li&gt;:last-child,.markdown-body ol li&gt;:last-child{margin-bottom:0}.markdown-body dl{padding:0}.markdown-body dl dt{font-size:14px;font-weight:bold;font-style:italic;padding:0;margin:15px 0 5px}.markdown-body dl dt:first-child{padding:0}.markdown-body dl dt&gt;:first-child{margin-top:0}.markdown-body dl dt&gt;:last-child{margin-bottom:0}.markdown-body dl dd{margin:0 0 15px;padding:0 15px}.markdown-body dl dd&gt;:first-child{margin-top:0}.markdown-body dl dd&gt;:last-child{margin-bottom:0}.markdown-body blockquote{border-left:4px solid #DDD;padding:0 15px;color:#777}.markdown-body blockquote&gt;:first-child{margin-top:0}.markdown-body blockquote&gt;:last-child{margin-bottom:0}.markdown-body table{padding:0;border-collapse:collapse;border-spacing:0}.markdown-body table tr{border-top:1px solid #ccc;background-color:#fff;margin:0;padding:0}.markdown-body table tr:nth-child(2n){background-color:#f8f8f8}.markdown-body table tr th{font-weight:bold}.markdown-body table tr th,.markdown-body table tr td{border:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}.markdown-body table tr th&gt;:first-child,.markdown-body table tr td&gt;:first-child{margin-top:0}.markdown-body table tr th&gt;:last-child,.markdown-body table tr td&gt;:last-child{margin-bottom:0}.markdown-body img{max-width:100%}.markdown-body span.frame{display:block;overflow:hidden}.markdown-body span.frame&gt;span{border:1px solid #ddd;display:block;float:left;overflow:hidden;margin:13px 0 0;padding:7px;width:auto}.markdown-body span.frame span img{display:block;float:left}.markdown-body span.frame span span{clear:both;color:#333;display:block;padding:5px 0 0}.markdown-body span.align-center{display:block;overflow:hidden;clear:both}.markdown-body span.align-center&gt;span{display:block;overflow:hidden;margin:13px auto 0;text-align:center}.markdown-body span.align-center span img{margin:0 auto;text-align:center}.markdown-body span.align-right{display:block;overflow:hidden;clear:both}.markdown-body span.align-right&gt;span{display:block;overflow:hidden;margin:13px 0 0;text-align:right}.markdown-body span.align-right span img{margin:0;text-align:right}.markdown-body span.float-left{display:block;margin-right:13px;overflow:hidden;float:left}.markdown-body span.float-left span{margin:13px 0 0}.markdown-body span.float-right{display:block;margin-left:13px;overflow:hidden;float:right}.markdown-body span.float-right&gt;span{display:block;overflow:hidden;margin:13px auto 0;text-align:right}.markdown-body code,.markdown-body tt{margin:0 2px;padding:0 5px;border:1px solid #ddd;background-color:#f8f8f8;border-radius:3px}.markdown-body pre&gt;tt,.markdown-body pre&gt;code{margin:0;padding:0;white-space:pre;border:none;background:transparent}.markdown-body pre{background-color:#f8f8f8;border:1px solid #ccc;font-size:13px;line-height:19px;overflow:auto;padding:6px 10px;border-radius:3px}.markdown-body pre pre,.markdown-body pre code,.markdown-body pre tt{background-color:transparent;border:none}.markdown-body pre pre{margin:0;padding:0}.toc{background-color:#F7F7F7;border:1px solid #ddd;padding:5px 10px;margin:0;border-radius:3px}.toc-title{color:#888;font-size:14px;line-height:1.6;padding:2px;border-bottom:1px solid #ddd;margin-bottom:3px}.toc ul{padding-left:10px;margin:0}.toc&gt;ul{margin-left:10px;font-size:17px}.toc ul ul{font-size:15px}.toc ul ul ul{font-size:14px}.toc ul li{margin:0}#header-content .toc,#footer-content .toc,#sidebar-content .toc{border:none}pre code{display:block;padding:0.5em;color:#333;background:#f8f8ff}pre .comment,pre .template_comment,pre .diff .header,pre .javadoc{color:#998;font-style:italic}pre .keyword,pre .css .rule .keyword,pre .winutils,pre .javascript .title,pre .nginx .title,pre .subst,pre .request,pre .status{color:#333;font-weight:bold}pre .number,pre .hexcolor,pre .ruby .constant{color:#099}pre .string,pre .tag .value,pre .phpdoc,pre .tex .formula{color:#d14}pre .title,pre .id,pre .coffeescript .params{color:#900;font-weight:bold}pre .javascript .title,pre .lisp .title,pre .clojure .title,pre .subst{font-weight:normal}pre .class .title,pre .haskell .type,pre .vhdl .literal,pre .tex .command{color:#458;font-weight:bold}pre .tag,pre .tag .title,pre .rules .property,pre .django .tag .keyword{color:#000080;font-weight:normal}pre .attribute,pre .variable,pre .lisp .body{color:#008080}pre .regexp{color:#009926}pre .class{color:#458;font-weight:bold}pre .symbol,pre .ruby .symbol .string,pre .lisp .keyword,pre .tex .special,pre .prompt{color:#990073}pre .built_in,pre .lisp .title,pre .clojure .built_in{color:#0086b3}pre .preprocessor,pre .pi,pre .doctype,pre .shebang,pre .cdata{color:#999;font-weight:bold}pre .deletion{background:#fdd}pre .addition{background:#dfd}pre .diff .change{background:#0086b3}pre .chunk{color:#aaa}</style><script>(function(undefined){var exports={};return exports})()</script></head><body><div class="grid"><div class="col-3-12"><div class="markdown-body"><header>
+<h1 class="module-name">tusk</h1>
+<p><b class="module-description">Documentation generator tool for node.js libraries</b></p>
+<p><span class="module-version">version 0.0.0</span>&nbsp;<span class="module-author">by Remy Loubradou</span>&nbsp;<span class="module-licence">licensed under MIT</span>
+</p><div style="vertical-align: baseline" class="social-buttons"><iframe src="http://ghbtns.com/github-btn.html?user=lbdremy&repo=tusk&type=watch&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"></iframe><iframe src="http://ghbtns.com/github-btn.html?user=lbdremy&repo=tusk&type=fork&count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"></iframe><a href="https://twitter.com/share" data-text="Check out tusk, Documentation generator tool for node.js libraries" data-via="lbdremy" data-lang="en" class="twitter-share-button">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></script></div></header><br><nav><ul><li><a href="#features">Features</a></li><li><a href="#ideas-of-features">Ideas of features</a></li><li><a href="#usage">Usage</a></li><li><a href="#code-documentation">Code documentation</a></li><ul><li><a href="#index.js">index.js</a></li><li><a href="#bin/tusk.js">bin/tusk.js</a></li><li><a href="#lib/tusk.js">lib/tusk.js</a></li><li><a href="#lib/utils.js">lib/utils.js</a></li><li><a href="#lib/parsers/index.js">lib/parsers/index.js</a></li><li><a href="#lib/parsers/javascript.js">lib/parsers/javascript.js</a></li><li><a href="#lib/htmlifiers/index.js">lib/htmlifiers/index.js</a></li><li><a href="#lib/htmlifiers/markdown.js">lib/htmlifiers/markdown.js</a></li><li><a href="#lib/htmlifiers/javascript.js">lib/htmlifiers/javascript.js</a></li><li><a href="#lib/htmlifiers/pack.js">lib/htmlifiers/pack.js</a></li><li><a href="#lib/documenters/index.js">lib/documenters/index.js</a></li><li><a href="#lib/documenters/readme.js">lib/documenters/readme.js</a></li><li><a href="#lib/documenters/anchors.js">lib/documenters/anchors.js</a></li><li><a href="#lib/documenters/examples.js">lib/documenters/examples.js</a></li><li><a href="#lib/documenters/showcase.js">lib/documenters/showcase.js</a></li><li><a href="#lib/documenters/github-buttons.js">lib/documenters/github-buttons.js</a></li><li><a href="#lib/documenters/licence.js">lib/documenters/licence.js</a></li><li><a href="#lib/documenters/menu.js">lib/documenters/menu.js</a></li><li><a href="#lib/documenters/lib.js">lib/documenters/lib.js</a></li><li><a href="#lib/assets/scripts/script.js">lib/assets/scripts/script.js</a></li></ul><li><a href="#licence">Licence</a></li></ul></nav></div></div><div class="col-9-12"><div class="markdown-body"><article><section id="readme">
+<h2 id="features">Features</h2>
+<ul>
+<li>use the README, LICENCE files</li>
+<li>code documentation</li>
+<li>tweet button</li>
+<li>github buttons</li>
+<li>SEO friendly (send pull request to improve it :) )</li>
+<li>support google analytics</li>
+<li>support custom stylesheets and scripts</li>
+</ul>
+<h2 id="ideas-of-features">Ideas of features</h2>
+<ul>
+<li>code coverage documentation</li>
+<li>test suite documentation</li>
+<li>code complexity documentation</li>
+<li>use the CHANGELOG file</li>
+<li>files in the example[s] folder are used as samples in the documentation</li>
+<li>travis badge</li>
+<li>gemnasium badge</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<pre><code class="language-bash">$ tusk --help
+Usage: tusk [--input=FOLDER] [options]
+
+Options:
+  --input, -i  use the files contained <span class="keyword">in</span> FOLDER to generate the documentation  [default: <span class="string">"/home/lbdremy/workspace/nodejs/tusk"</span>]
+  --styles     use the FILE(s) as the css file of the site                      [default: <span class="string">"/home/lbdremy/workspace/nodejs/tusk/bin/../lib/assets/stylesheets/normalize.css,/home/lbdremy/workspace/nodejs/tusk/bin/../lib/assets/stylesheets/simplegrid.css,/home/lbdremy/workspace/nodejs/tusk/bin/../lib/assets/stylesheets/github-markdown.css"</span>]
+  --scripts    use the FILE(s) as the javascript script(s) of the site          [default: <span class="string">"/home/lbdremy/workspace/nodejs/tusk/bin/../lib/assets/scripts/script.js"</span>]
+  --help, -h   show the help                                                    [boolean]</code></pre>
+<p>Configuration file <code>.tusk.json</code>:
+(it should be in the root directory of your module)</p>
+<pre><code class="language-json">{
+    "<span class="attribute">google-analytics-id</span>" : <span class="value"><span class="string">"UA-XXXXXXXXXXX"</span></span>,
+    "<span class="attribute">twitter-user</span>" : <span class="value"><span class="string">"username"</span>
+}</span></code></pre>
+
+
+
+
+
+
+
+</section><section id="lib"><h2 id="code-documentation">Code documentation</h2><h3 alt="index.js" id="index.js">index.js</h3><h3 alt="bin/tusk.js" id="bin/tusk.js">bin/tusk.js</h3>
+<h4 id="tusk-=-require(&apos;./../&apos;),">tusk = require('./../'),</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> tusk = require(<span class="string">'./../'</span>),
+	optimist = require(<span class="string">'optimist'</span>);
+
+<span class="comment">// Default styles and scripts</span>
+<span class="keyword">var</span> defaultStyles = __dirname + <span class="string">'/../lib/assets/stylesheets/normalize.css,'</span>
+    + __dirname + <span class="string">'/../lib/assets/stylesheets/simplegrid.css,'</span>
+    + __dirname  + <span class="string">'/../lib/assets/stylesheets/github-markdown.css'</span>;
+<span class="keyword">var</span> defaultScripts = __dirname + <span class="string">'/../lib/assets/scripts/script.js'</span>;
+
+<span class="comment">// Build the command line tool and parse the arguments</span>
+<span class="keyword">var</span> argv = optimist
+	.usage(<span class="string">'Usage: $0 [--input=FOLDER] [options]'</span>)
+	.describe(<span class="string">'input'</span>,<span class="string">'use the files contained in FOLDER to generate the documentation'</span>)
+    .describe(<span class="string">'styles'</span>,<span class="string">'use the FILE(s) as the css file of the site'</span>)
+    .describe(<span class="string">'scripts'</span>,<span class="string">'use the FILE(s) as the javascript script(s) of the site'</span>)
+    .describe(<span class="string">'help'</span>,<span class="string">'show the help'</span>)
+    .alias(<span class="string">'i'</span>,<span class="string">'input'</span>)
+    .alias(<span class="string">'o'</span>,<span class="string">'output'</span>)
+    .alias(<span class="string">'h'</span>,<span class="string">'help'</span>)
+    .boolean(<span class="string">'help'</span>)
+    .<span class="keyword">default</span>(<span class="string">'input'</span>,process.cwd())
+    .<span class="keyword">default</span>(<span class="string">'styles'</span>,defaultStyles)
+    .<span class="keyword">default</span>(<span class="string">'scripts'</span>,defaultScripts)
+    .argv;
+
+<span class="comment">// Show the help</span>
+<span class="keyword">if</span>(argv.help){
+    console.log(optimist.help());
+    process.exit(<span class="number">0</span>);
+}
+
+<span class="comment">// Document</span>
+tusk.document(argv,<span class="keyword">function</span>(err,page){
+    <span class="keyword">if</span>(err) <span class="keyword">throw</span> err;
+    console.log(page);
+});</code></pre><h3 alt="lib/tusk.js" id="lib/tusk.js">lib/tusk.js</h3>
+<h4 id="htmlifiers-=-require(&apos;./htmlifiers/&apos;),">htmlifiers = require('./htmlifiers/'),</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> htmlifiers = require(<span class="string">'./htmlifiers/'</span>),
+	parsers = require(<span class="string">'./parsers/'</span>),
+	documenters = require(<span class="string">'./documenters/'</span>),
+	consolidate = require(<span class="string">'consolidate'</span>),
+	step = require(<span class="string">'step'</span>),
+	utils = require(<span class="string">'./utils'</span>),
+	fs = require(<span class="string">'fs'</span>);</code></pre>
+<h4 id="exports.htmlifiers-=-htmlifiers">exports.htmlifiers = htmlifiers</h4>
+<div><p>Expose htmlifiers
+    htmlifiers are responsible for tranforming js, json, markdown data into html.</p>
+</div><br>
+<pre><code class="language-javascript">exports.htmlifiers = htmlifiers;</code></pre>
+<h4 id="exports.parsers-=-parsers">exports.parsers = parsers</h4>
+<div><p>Expose parsers
+ parsers are responsible for extracting relevant informations from the noise into js, json, markdown format.</p>
+</div><br>
+<pre><code class="language-javascript">exports.parsers = parsers;</code></pre>
+<h4 id="exports.documenters-=-documenters">exports.documenters = documenters</h4>
+<div><p>Exports documenters
+    documenters are responsible for finding, fetching and transforming the known into readable and meaningful information
+    in our case for the web.</p>
+</div><br>
+<pre><code class="language-javascript">exports.documenters = documenters;</code></pre>
+<h4 id="exports.document-=-document">exports.document = document</h4>
+<div><p>Export the document method
+ main job of tusk</p>
+</div><br>
+<pre><code class="language-javascript">exports.document = document;</code></pre>
+<h4 id="document(parts,done)">document(parts,done)</h4>
+<div><p>Document the given <code>parts</code></p>
+</div><br>
+<pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">document</span><span class="params">(parts,done)</span>{</span>
+	step(
+		<span class="function"><span class="keyword">function</span> <span class="title">work</span><span class="params">()</span>{</span>
+			<span class="keyword">var</span> self = <span class="keyword">this</span>;
+			documenters.showcase(parts.input,<span class="keyword">this</span>.parallel());
+			documenters.readme(parts.input,<span class="keyword">this</span>.parallel());
+			documenters.licence(parts.input,<span class="keyword">this</span>.parallel());
+			documenters.lib(parts.input,<span class="keyword">this</span>.parallel());
+			<span class="keyword">var</span> cssCallback = <span class="keyword">this</span>.parallel();
+			utils.readFiles(parts.styles.split(<span class="string">','</span>),<span class="keyword">function</span>(err,files){
+				<span class="keyword">if</span>(err) <span class="keyword">return</span> cssCallback(err);
+				<span class="keyword">var</span> css = utils.compressCSS(files.join(<span class="string">'\n'</span>));
+				cssCallback(<span class="literal">null</span>,css);
+			});
+			<span class="keyword">var</span> jsCallback = <span class="keyword">this</span>.parallel();
+			utils.readFiles(parts.scripts.split(<span class="string">','</span>),<span class="keyword">function</span>(err,files){
+				<span class="keyword">if</span>(err) <span class="keyword">return</span> jsCallback(err);
+				<span class="keyword">var</span> js = utils.compressJS(files.join(<span class="string">'\n'</span>));
+				jsCallback(<span class="literal">null</span>,js);
+			});
+			<span class="keyword">var</span> dotTuskCallback = <span class="keyword">this</span>.parallel();
+			fs.readFile(parts.input + <span class="string">'/.tusk.json'</span>,<span class="keyword">function</span>(err,file){
+				<span class="keyword">if</span>(err) <span class="keyword">return</span> dotTuskCallback(err);
+				dotTuskCallback(<span class="literal">null</span>,JSON.parse(file));
+			});
+			documenters.githubButtons(parts.input,<span class="keyword">this</span>.parallel());
+		},
+		<span class="function"><span class="keyword">function</span> <span class="title">finalize</span><span class="params">(err,showcase,readme,licence,lib,style,script,dotTusk,githubButtons)</span>{</span>
+			<span class="keyword">if</span>(err) <span class="keyword">throw</span> err;
+			<span class="keyword">var</span> content = [readme,lib,licence].reduce(<span class="keyword">function</span>(content,section){
+				<span class="keyword">return</span> content + section;
+			},<span class="string">''</span>);
+			content = documenters.anchors(content);
+			<span class="keyword">var</span> packagejson = require(parts.input + <span class="string">'/package.json'</span>);
+			<span class="comment">// Find keywords</span>
+			<span class="keyword">var</span> keywords = <span class="string">''</span>;
+			<span class="keyword">if</span>(packagejson.keywords){
+				keywords = packagejson.keywords.join(<span class="string">','</span>) + <span class="string">','</span> + packagejson.name
+			}
+			<span class="keyword">var</span> locals = {
+				title : packagejson.name,
+				description : packagejson.description,
+				author : utils.findAuthor(packagejson),
+				keywords : keywords,
+				showcase : showcase,
+				menu : documenters.menu(content),
+				content : content,
+				script : script,
+				style : style,
+				dotTusk : dotTusk,
+				githubButtons : githubButtons,
+				packagejson : packagejson
+			};
+			consolidate.jade(__dirname + <span class="string">'/views/index.jade'</span>,locals,<span class="keyword">this</span>);
+		},
+		done
+	);
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>parts {Array} -</li>
+    <li>done {Function} -</li>
+  </ul>
+</p><h3 alt="lib/utils.js" id="lib/utils.js">lib/utils.js</h3>
+<h4 id="exports.compressjs(code)">exports.compressJS(code)</h4>
+<div><p>Compress the given javascript <code>code</code></p>
+</div><br>
+<pre><code class="language-javascript">exports.compressJS = <span class="function"><span class="keyword">function</span> <span class="title">compressJS</span><span class="params">(code)</span>{</span>
+	<span class="keyword">var</span> parser = uglifyjs.parser;
+	<span class="keyword">var</span> uglify = uglifyjs.uglify;
+	<span class="keyword">var</span> ast = parser.parse(code); <span class="comment">// parse code and get the initial AST</span>
+	<span class="comment">//ast = uglify.ast_mangle(ast); // get a new AST with mangled names</span>
+	<span class="comment">//ast = uglify.ast_squeeze(ast); // get an AST with compression optimizations</span>
+	<span class="keyword">return</span> uglify.gen_code(ast); <span class="comment">// compressed code here</span>
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>code {String} - javascript code</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{String} javascrip code commpressed</li>
+  </ul>
+</p>
+<h4 id="exports.compresscss(code)">exports.compressCSS(code)</h4>
+<div><p>Compress the given css <code>code</code></p>
+</div><br>
+<pre><code class="language-javascript">exports.compressCSS = <span class="function"><span class="keyword">function</span> <span class="title">compressCSS</span><span class="params">(code)</span>{</span>
+	<span class="keyword">return</span> sqwish.minify(code,<span class="literal">false</span>);
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>code {String} - css code</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{String} css code compressed</li>
+  </ul>
+</p>
+<h4 id="exports.readfiles(paths,callback,callback(err),callback(,files))">exports.readFiles(paths,callback,callback(err),callback(,files))</h4>
+<div><p>Read files</p>
+</div><br>
+<pre><code class="language-javascript">exports.readFiles = <span class="function"><span class="keyword">function</span> <span class="title">readFiles</span><span class="params">(paths,callback)</span>{</span>
+	step(<span class="function"><span class="keyword">function</span> <span class="title">read</span><span class="params">()</span>{</span>
+		<span class="keyword">var</span> group = <span class="keyword">this</span>.group();
+		paths.forEach(<span class="keyword">function</span>(path){
+			fs.readFile(path,<span class="string">'utf8'</span>,group());
+		});
+	},callback)
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>paths {Array&lt;String&gt;} - a list of file system paths</li>
+    <li>callback {Function} -</li>
+    <li>callback(err) {Error} -</li>
+    <li>callback(,files) {Array} - a list containing the contain of each file system paths previously given</li>
+  </ul>
+</p>
+<h4 id="exports.readatleastonefile(paths,callback,callback(err),callback(,file))">exports.readAtLeastOneFile(paths,callback,callback(err),callback(,file))</h4>
+<div><p>Read at least one file in the given <code>paths</code></p>
+</div><br>
+<pre><code class="language-javascript">exports.readAtLeastOneFile = <span class="function"><span class="keyword">function</span> <span class="title">readAtLeastOneFile</span><span class="params">(paths,callback)</span>{</span>
+	step(
+		<span class="function"><span class="keyword">function</span> <span class="title">readFiles</span><span class="params">()</span>{</span>
+			<span class="keyword">var</span> group = <span class="keyword">this</span>.group();
+			paths.forEach(<span class="keyword">function</span>(path){
+				fs.readFile(path,<span class="string">'utf8'</span>,group());
+			});
+		},
+		<span class="function"><span class="keyword">function</span> <span class="title">cleanup</span><span class="params">(err,files)</span>{</span>
+			<span class="keyword">var</span> goodFile;
+			files.forEach(<span class="keyword">function</span>(file){
+				<span class="keyword">if</span>(file &amp;&amp; !goodFile) goodFile = file;
+			});
+			<span class="keyword">if</span>(!goodFile) <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">'Cannot read any of the given files: '</span> + paths.join(<span class="string">','</span>));
+			<span class="keyword">return</span> goodFile;
+		},
+		callback
+	);
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>paths {Array&lt;String&gt;} -</li>
+    <li>callback {Function} -</li>
+    <li>callback(err) {Error} -</li>
+    <li>callback(,file) {Array} -</li>
+  </ul>
+</p>
+<h4 id="exports.statatleastone(paths,callback,callback(err),callback(,file))">exports.statAtLeastOne(paths,callback,callback(err),callback(,file))</h4>
+<div><p>Give at least one file status for the given <code>paths</code></p>
+</div><br>
+<pre><code class="language-javascript">exports.statAtLeastOne = <span class="function"><span class="keyword">function</span> <span class="title">statAtLeastOne</span><span class="params">(paths,callback)</span>{</span>
+	step(
+		<span class="function"><span class="keyword">function</span> <span class="title">stats</span><span class="params">()</span>{</span>
+			<span class="keyword">var</span> group = <span class="keyword">this</span>.group();
+			paths.forEach(<span class="keyword">function</span>(path){
+				fs.stat(path,group());
+			});
+		},
+		<span class="function"><span class="keyword">function</span> <span class="title">cleanup</span><span class="params">(err,stats)</span>{</span>
+			<span class="keyword">var</span> goodStat;
+			stats.forEach(<span class="keyword">function</span>(stat){
+				<span class="keyword">if</span>(stat &amp;&amp; !goodStat) goodStat = stat;
+			});
+			<span class="keyword">if</span>(!goodStat) <span class="keyword">throw</span> <span class="keyword">new</span> Error(<span class="string">'Cannot stat any of the given files: '</span> + paths.join(<span class="string">','</span>));
+			<span class="keyword">return</span> goodStat;
+		},
+		callback
+	);
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>paths {Array&lt;String&gt;} -</li>
+    <li>callback {Function} -</li>
+    <li>callback(err) {Error} -</li>
+    <li>callback(,file) {Array} -</li>
+  </ul>
+</p>
+<h4 id="exports.findauthor(packagejson)">exports.findAuthor(packagejson)</h4>
+<div><p>Find the author in the structure like package.json</p>
+</div><br>
+<pre><code class="language-javascript">exports.findAuthor = <span class="function"><span class="keyword">function</span> <span class="title">findAuthor</span><span class="params">(packagejson)</span>{</span>
+	<span class="keyword">var</span> author = <span class="string">'Anonymous'</span>;
+	<span class="keyword">if</span>(<span class="keyword">typeof</span> packagejson.author === <span class="string">'string'</span>){
+		author = packagejson.author.replace(<span class="regexp">/&lt;.*&gt;/</span>,<span class="string">''</span>).trim();
+	}<span class="keyword">else</span> <span class="keyword">if</span>(<span class="keyword">typeof</span> packagejson.author === <span class="string">'object'</span>){
+		author = packagejson.author.name;
+	}
+	<span class="keyword">return</span> author;
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>packagejson {Object} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{String} author</li>
+  </ul>
+</p><h3 alt="lib/parsers/index.js" id="lib/parsers/index.js">lib/parsers/index.js</h3>
+<h4 id="javascript-=-require(&apos;./javascript&apos;)">javascript = require('./javascript')</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> javascript = require(<span class="string">'./javascript'</span>);</code></pre>
+<h4 id="exports.javascript-=-javascript">exports.javascript = javascript</h4>
+<div><p>Expose all parsers</p>
+</div><br>
+<pre><code class="language-javascript">exports.javascript = javascript;</code></pre><h3 alt="lib/parsers/javascript.js" id="lib/parsers/javascript.js">lib/parsers/javascript.js</h3>
+<h4 id="dox-=-require(&apos;dox&apos;)">dox = require('dox')</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> dox = require(<span class="string">'dox'</span>);</code></pre>
+<h4 id="exports.parse(js)">exports.parse(js)</h4>
+<div><p>Parse comments in the given string of <code>js</code>.</p>
+</div><br>
+<pre><code class="language-javascript">exports.parse = <span class="keyword">function</span>(js){
+	<span class="keyword">var</span> options = {
+		raw : <span class="literal">true</span>
+	};
+	<span class="keyword">return</span> dox.parseComments(js.toString(),options);
+}</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>js {string|Buffer} </li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{Array} comments</li>
+  </ul>
+</p><h3 alt="lib/htmlifiers/index.js" id="lib/htmlifiers/index.js">lib/htmlifiers/index.js</h3>
+<h4 id="markdown-=-require(&apos;./markdown&apos;),">markdown = require('./markdown'),</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> markdown = require(<span class="string">'./markdown'</span>),
+	javascript = require(<span class="string">'./javascript'</span>);</code></pre>
+<h4 id="exports.markdown-=-markdown">exports.markdown = markdown</h4>
+<div><p>Expose all htmlifiers</p>
+</div><br>
+<pre><code class="language-javascript">exports.markdown = markdown;
+exports.javascript = javascript;</code></pre><h3 alt="lib/htmlifiers/markdown.js" id="lib/htmlifiers/markdown.js">lib/htmlifiers/markdown.js</h3>
+<h4 id="marked-=-require(&apos;marked&apos;),">marked = require('marked'),</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> marked = require(<span class="string">'marked'</span>),
+	highlighter = require(<span class="string">'highlight.js'</span>);</code></pre>
+<h4 id="exports.htmlify(md)">exports.htmlify(md)</h4>
+<div><p>HTMLify the markdown file represented by <code>md</code></p>
+</div><br>
+<pre><code class="language-javascript">exports.htmlify = <span class="function"><span class="keyword">function</span> <span class="title">htmlify</span><span class="params">(md)</span>{</span>
+	<span class="keyword">return</span> marked(md.toString());
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>md {string|Buffer} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{string} html</li>
+  </ul>
+</p><h3 alt="lib/htmlifiers/javascript.js" id="lib/htmlifiers/javascript.js">lib/htmlifiers/javascript.js</h3>
+<h4 id="javascript-=-require(&apos;./../parsers/javascript&apos;),">javascript = require('./../parsers/javascript'),</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> javascript = require(<span class="string">'./../parsers/javascript'</span>),
+	highlighter = require(<span class="string">'highlight.js'</span>),
+	marked = require(<span class="string">'marked'</span>),
+	fs = require(<span class="string">'fs'</span>),
+	jade = require(<span class="string">'jade'</span>);</code></pre>
+<h4 id="template-=-fs.readfilesync(__dirname-+-&apos;/templates/javascript.jade&apos;,&apos;utf-8&apos;)">template = fs.readFileSync(__dirname + '/templates/javascript.jade','utf-8')</h4>
+<div><p>Fetch and compile the template</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> template = fs.readFileSync(__dirname + <span class="string">'/templates/javascript.jade'</span>,<span class="string">'utf-8'</span>);
+<span class="keyword">var</span> options = {
+	pretty : <span class="literal">true</span>
+};
+<span class="keyword">var</span> render = jade.compile(template,options);</code></pre>
+<h4 id="exports.htmlify(js)">exports.htmlify(js)</h4>
+<div><p>HTMLify the javascript file represented by <code>js</code></p>
+</div><br>
+<pre><code class="language-javascript">exports.htmlify = <span class="function"><span class="keyword">function</span> <span class="title">htmlify</span><span class="params">(js)</span>{</span>
+	<span class="keyword">var</span> comments = javascript.parse(js);
+	comments.forEach(<span class="keyword">function</span>(comment){
+		comment.resume = {};
+		comment.resume.name = <span class="string">''</span>;
+		comment.resume.code = <span class="string">''</span>;
+		<span class="keyword">if</span>(comment.ctx &amp;&amp; (comment.ctx.type === <span class="string">'declaration'</span> || comment.ctx.type === <span class="string">'property'</span>)){
+			comment.resume.name = comment.ctx.string + <span class="string">' = '</span> + comment.ctx.value;
+		}<span class="keyword">else</span> <span class="keyword">if</span>( comment.ctx &amp;&amp; (comment.ctx.type === <span class="string">'function'</span> || comment.ctx.type === <span class="string">'method'</span>)){
+			<span class="keyword">var</span> parameters = [];
+			comment.tags.forEach(<span class="keyword">function</span>(tag){
+				<span class="keyword">if</span>(tag.type === <span class="string">'param'</span> &amp;&amp; !tag.name.match(<span class="regexp">/(\[\]|\(\)|\.)/</span>)) parameters.push(tag.name);
+			});
+			<span class="keyword">var</span> string = comment.ctx.string.replace(<span class="string">'()'</span>, <span class="string">'('</span> + parameters.join(<span class="string">','</span>) + <span class="string">')'</span>);
+			comment.resume.name = string;
+		}
+		comment.resume.description = marked(comment.description.full);
+		<span class="keyword">if</span>(comment.code) comment.resume.code = highlighter.highlight(<span class="string">'javascript'</span>,comment.code).value;
+		comment.resume.parameters = [];
+		comment.resume.returns = <span class="string">''</span>;
+		comment.tags.forEach(<span class="keyword">function</span>(tag){
+			<span class="keyword">if</span>(tag.type === <span class="string">'param'</span>){
+				<span class="keyword">var</span> type =  <span class="string">'{'</span> + tag.types.join(<span class="string">'|'</span>) + <span class="string">'}'</span>;
+				<span class="keyword">var</span> parameter = tag.name + <span class="string">' '</span> +  type + <span class="string">' '</span> + tag.description;
+				comment.resume.parameters.push(parameter);
+			}<span class="keyword">else</span> <span class="keyword">if</span>(tag.type === <span class="string">'return'</span> || tag.type === <span class="string">'returns'</span>){
+				<span class="keyword">var</span> type =  <span class="string">'{'</span> + tag.types.join(<span class="string">'|'</span>) + <span class="string">'}'</span>;
+				comment.resume.returns = type + <span class="string">' '</span> + tag.description;
+			}
+		});
+	});
+	<span class="keyword">return</span> render({ comments : comments });
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>js {string|Buffer} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{string} html</li>
+  </ul>
+</p><h3 alt="lib/htmlifiers/pack.js" id="lib/htmlifiers/pack.js">lib/htmlifiers/pack.js</h3>
+<h4 id="fs-=-require(&apos;fs&apos;)">fs = require('fs')</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> fs = require(<span class="string">'fs'</span>);
+	jade = require(<span class="string">'jade'</span>),
+	utils = require(<span class="string">'./../utils'</span>);</code></pre>
+<h4 id="template-=-fs.readfilesync(__dirname-+-&apos;/templates/package-json.jade&apos;,&apos;utf-8&apos;)">template = fs.readFileSync(__dirname + '/templates/package-json.jade','utf-8')</h4>
+<div><p>Fetch and compile the template</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> template = fs.readFileSync(__dirname + <span class="string">'/templates/package-json.jade'</span>,<span class="string">'utf-8'</span>);
+<span class="keyword">var</span> options = {
+	pretty : <span class="literal">true</span>
+};
+<span class="keyword">var</span> render = jade.compile(template,options);</code></pre>
+<h4 id="exports.htmlify(json)">exports.htmlify(json)</h4>
+<div><p>HTMLify the package.json file</p>
+</div><br>
+<pre><code class="language-javascript">exports.htmlify = <span class="function"><span class="keyword">function</span> <span class="title">htmlify</span><span class="params">(json)</span>{</span>
+	<span class="keyword">var</span> pack = JSON.parse(json);
+	pack.author = utils.findAuthor(pack);
+	<span class="keyword">return</span> render(pack);
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>json {string} -</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{string} html</li>
+  </ul>
+</p><h3 alt="lib/documenters/index.js" id="lib/documenters/index.js">lib/documenters/index.js</h3>
+<h4 id="examples-=-require(&apos;./examples&apos;),">examples = require('./examples'),</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> examples = require(<span class="string">'./examples'</span>),
+	lib = require(<span class="string">'./lib'</span>),
+	showcase = require(<span class="string">'./showcase'</span>),
+	readme = require(<span class="string">'./readme'</span>),
+	githubButtons = require(<span class="string">'./github-buttons'</span>),
+	licence = require(<span class="string">'./licence'</span>),
+	menu = require(<span class="string">'./menu'</span>),
+	anchors = require(<span class="string">'./anchors'</span>);</code></pre>
+<h4 id="exports.examples-=-examples">exports.examples = examples</h4>
+<div><p>Expose all documenters</p>
+</div><br>
+<pre><code class="language-javascript">exports.examples = examples;
+exports.lib = lib;
+exports.showcase = showcase;
+exports.readme = readme;
+exports.githubButtons = githubButtons;
+exports.licence = licence;
+exports.menu = menu;
+exports.anchors = anchors;</code></pre><h3 alt="lib/documenters/readme.js" id="lib/documenters/readme.js">lib/documenters/readme.js</h3>
+<h4 id="markdown-=-require(&apos;./../htmlifiers/markdown&apos;),">markdown = require('./../htmlifiers/markdown'),</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> markdown = require(<span class="string">'./../htmlifiers/markdown'</span>),
+	utils = require(<span class="string">'./../utils'</span>),
+	step = require(<span class="string">'step'</span>),
+	cheerio = require(<span class="string">'cheerio'</span>),
+	utils = require(<span class="string">'./../utils'</span>);</code></pre>
+<h4 id="module.exports(cwd,callback)">module.exports(cwd,callback)</h4>
+<div><p>Build a html piece from the README.md of the module in <code>cwd</code></p>
+</div><br>
+<pre><code class="language-javascript">module.exports = <span class="keyword">function</span>(cwd,callback){
+	<span class="keyword">var</span> paths = [
+		cwd + <span class="string">'/README.md'</span>,
+		cwd + <span class="string">'/README.markdown'</span>,
+		cwd + <span class="string">'/README'</span>
+	];
+	step(
+		<span class="function"><span class="keyword">function</span> <span class="title">read</span><span class="params">(err)</span>{</span>
+			utils.readAtLeastOneFile(paths,<span class="keyword">this</span>);
+		},
+		<span class="function"><span class="keyword">function</span> <span class="title">htmlify</span><span class="params">(err,file)</span>{</span>
+			<span class="keyword">if</span>(err) <span class="keyword">throw</span> err;
+			<span class="keyword">var</span> readme = markdown.htmlify(file);
+			<span class="keyword">var</span> $ = cheerio.load(readme);
+			<span class="comment">// Remove h1 tag and p tags after h1</span>
+			<span class="keyword">var</span> $p = $(<span class="string">'h1 + p'</span>);
+			<span class="keyword">while</span>($p[<span class="number">0</span>]){
+				$p.remove();
+				$p = $(<span class="string">'h1 + p'</span>);
+			}
+			$(<span class="string">'h1'</span>).remove();
+			readme = <span class="string">'&lt;section id="readme"&gt;'</span> + $.html() + <span class="string">'&lt;/section&gt;'</span>;
+			<span class="keyword">return</span> readme;
+		},
+		<span class="function"><span class="keyword">function</span> <span class="title">cleanupLicence</span><span class="params">(err,readme)</span>{</span>
+			<span class="keyword">if</span>(err) <span class="keyword">throw</span> err;
+			<span class="keyword">var</span> self = <span class="keyword">this</span>;
+			<span class="comment">// Remove licence section if LICENCE-like files present</span>
+			<span class="keyword">var</span> paths = [
+				cwd + <span class="string">'/LICENCE.md'</span>,
+				cwd + <span class="string">'/LICENCE.markdown'</span>,
+				cwd + <span class="string">'/LICENCE'</span>,
+				cwd + <span class="string">'/LICENSE.md'</span>,
+				cwd + <span class="string">'/LICENSE.markdown'</span>,
+				cwd + <span class="string">'/LICENSE'</span>
+			];
+			utils.statAtLeastOne(paths,<span class="keyword">function</span>(err,stats){
+				<span class="comment">// the LICENCE-like doesn't exist not a problem for us</span>
+				<span class="keyword">if</span>(err) <span class="keyword">return</span> self(<span class="literal">null</span>,readme);
+				<span class="comment">// the LICENCE-like file exists</span>
+				<span class="keyword">var</span> $ = cheerio.load(readme);
+				<span class="keyword">var</span> isLicence = <span class="keyword">function</span>(text){
+					text = text.toLowerCase().trim();
+					<span class="keyword">return</span> (text === <span class="string">'licence'</span> || text === <span class="string">'license'</span>);
+				};
+				$(<span class="string">'h2'</span>).each(<span class="keyword">function</span>(i,element){
+					<span class="keyword">var</span> $element = $(element);
+					<span class="keyword">var</span> text = $element.text();
+					<span class="keyword">if</span>(isLicence(text)) $element.attr(<span class="string">'id'</span>,<span class="string">'licence'</span>);
+				});
+				<span class="keyword">var</span> $p = $(<span class="string">'h2#licence + p'</span>);
+				<span class="keyword">while</span>($p[<span class="number">0</span>]){
+					$p.remove();
+					$p = $(<span class="string">'h2#licence + p'</span>);
+				}
+				$(<span class="string">'h2#licence'</span>).remove();
+				self(<span class="literal">null</span>,$.html());
+			});
+		},
+		callback
+	);
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>cwd {string} - current working directory</li>
+    <li>callback {Function} -</li>
+  </ul>
+</p><h3 alt="lib/documenters/anchors.js" id="lib/documenters/anchors.js">lib/documenters/anchors.js</h3>
+<h4 id="cheerio-=-require(&apos;cheerio&apos;)">cheerio = require('cheerio')</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> cheerio = require(<span class="string">'cheerio'</span>);</code></pre>
+<h4 id="module.exports(content)">module.exports(content)</h4>
+<div><p>Add anchors to every h2,h3,h4 tags in the given HTML <code>content</code></p>
+</div><br>
+<pre><code class="language-javascript">module.exports = <span class="keyword">function</span>(content){
+	<span class="keyword">var</span> $ = cheerio.load(content);
+	<span class="keyword">var</span> tags = [<span class="string">'h2'</span>,<span class="string">'h3'</span>,<span class="string">'h4'</span>];
+	tags.forEach(<span class="keyword">function</span>(tag){
+		$(tag).each(<span class="keyword">function</span>(index,element){
+			$(element).attr(<span class="string">'id'</span>,$(element).text().toLowerCase().trim().replace(<span class="regexp">/ /g</span>,<span class="string">'-'</span>));
+		});
+	});
+	<span class="keyword">return</span> $.html();
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>content {string} - HTML</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{string} same HTML with anchors on h2,h3,h4</li>
+  </ul>
+</p><h3 alt="lib/documenters/examples.js" id="lib/documenters/examples.js">lib/documenters/examples.js</h3><h3 alt="lib/documenters/showcase.js" id="lib/documenters/showcase.js">lib/documenters/showcase.js</h3>
+<h4 id="pack-=-require(&apos;./../htmlifiers/pack&apos;),">pack = require('./../htmlifiers/pack'),</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> pack = require(<span class="string">'./../htmlifiers/pack'</span>),
+	fs = require(<span class="string">'fs'</span>),
+	step = require(<span class="string">'step'</span>);</code></pre>
+<h4 id="module.exports(cwd,callback)">module.exports(cwd,callback)</h4>
+<div><p>Build a html piece to showcase the module in <code>cwd</code></p>
+</div><br>
+<pre><code class="language-javascript">module.exports = <span class="keyword">function</span>(cwd,callback){
+	<span class="keyword">var</span> path = cwd + <span class="string">'/package.json'</span>;
+	step(
+		<span class="function"><span class="keyword">function</span> <span class="title">search</span><span class="params">()</span>{</span>
+			fs.stat(path,<span class="keyword">this</span>)
+		},
+		<span class="function"><span class="keyword">function</span> <span class="title">retrieve</span><span class="params">(err,stats)</span>{</span>
+			<span class="keyword">if</span>(err){
+				console.warn(<span class="string">'the package.json cannot be found!'</span>)
+				<span class="comment">// Bypass the callback chains</span>
+				callback();
+			}<span class="keyword">else</span>{
+				fs.readFile(path,<span class="string">'utf8'</span>,<span class="keyword">this</span>);
+			}
+		},
+		<span class="function"><span class="keyword">function</span> <span class="title">htmlify</span><span class="params">(err,file)</span>{</span>
+			<span class="keyword">if</span>(err) <span class="keyword">throw</span> err;
+			<span class="keyword">return</span> pack.htmlify(file);
+		},
+		callback
+	);
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>cwd {string} - current working directory</li>
+    <li>callback {Function} -</li>
+  </ul>
+</p><h3 alt="lib/documenters/github-buttons.js" id="lib/documenters/github-buttons.js">lib/documenters/github-buttons.js</h3>
+<h4 id="module.exports(cwd,callback)">module.exports(cwd,callback)</h4>
+<div><p>Build a html piece containing the unofficial github buttons
+    thanks to the <code>package.json</code></p>
+</div><br>
+<pre><code class="language-javascript">module.exports = <span class="keyword">function</span>(cwd,callback){
+	<span class="keyword">var</span> path = cwd + <span class="string">'/package.json'</span>;
+	step(
+		<span class="function"><span class="keyword">function</span> <span class="title">retrieve</span><span class="params">()</span>{</span>
+			fs.readFile(path,<span class="string">'utf8'</span>,<span class="keyword">this</span>);
+		},
+		<span class="function"><span class="keyword">function</span> <span class="title">htmlify</span><span class="params">(err,file)</span>{</span>
+			<span class="keyword">if</span>(err) <span class="keyword">throw</span> err;
+			<span class="keyword">var</span> urlRepo = githubFromPackage(JSON.parse(file));
+			<span class="keyword">if</span>(urlRepo){
+				<span class="keyword">var</span> urlRepoParsed = url.parse(urlRepo);
+				<span class="keyword">var</span> pathnameSplit = urlRepoParsed.pathname.slice(<span class="number">1</span>).split(<span class="string">'/'</span>);
+				<span class="keyword">var</span> github = {
+					repo : pathnameSplit[<span class="number">1</span>],
+					user : pathnameSplit[<span class="number">0</span>]
+				};
+				<span class="keyword">var</span> buttonTypes = [<span class="string">'watch'</span>,<span class="string">'fork'</span>];
+				<span class="keyword">var</span> html = <span class="string">''</span>;
+				buttonTypes.forEach(<span class="keyword">function</span>(buttonType){
+					html += <span class="string">'&lt;iframe src="http://ghbtns.com/github-btn.html?user='</span> + github.user + <span class="string">'&amp;repo='</span> + github.repo + <span class="string">'&amp;type='</span> + buttonType + <span class="string">'&amp;count=true"allowtransparency="true" frameborder="0" scrolling="0" width="78" height="20"&gt;&lt;/iframe&gt;'</span>
+				});
+				<span class="keyword">return</span> <span class="keyword">this</span>(<span class="literal">null</span>,html);
+			}
+			<span class="keyword">var</span> err = <span class="keyword">new</span> Error(<span class="string">'Cannot figure out the github url of this project thanks to the package.json'</span>);
+			<span class="keyword">this</span>(err);
+		},
+		callback
+	);
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>cwd {String} - current working directory</li>
+    <li>callback {Function} -</li>
+  </ul>
+</p><h3 alt="lib/documenters/licence.js" id="lib/documenters/licence.js">lib/documenters/licence.js</h3>
+<h4 id="markdown-=-require(&apos;./../htmlifiers/markdown&apos;),">markdown = require('./../htmlifiers/markdown'),</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> markdown = require(<span class="string">'./../htmlifiers/markdown'</span>),
+	utils = require(<span class="string">'./../utils'</span>),
+	step = require(<span class="string">'step'</span>);</code></pre>
+<h4 id="module.exports(cwd,callback)">module.exports(cwd,callback)</h4>
+<div><p>Build a html piece from the README.md of the module in <code>cwd</code></p>
+</div><br>
+<pre><code class="language-javascript">module.exports = <span class="keyword">function</span>(cwd,callback){
+	<span class="keyword">var</span> paths = [
+		cwd + <span class="string">'/LICENCE.md'</span>,
+		cwd + <span class="string">'/LICENCE.markdown'</span>,
+		cwd + <span class="string">'/LICENCE'</span>,
+		cwd + <span class="string">'/LICENSE.md'</span>,
+		cwd + <span class="string">'/LICENSE.markdown'</span>,
+		cwd + <span class="string">'/LICENSE'</span>
+	];
+	step(
+		<span class="function"><span class="keyword">function</span> <span class="title">read</span><span class="params">(err)</span>{</span>
+			utils.readAtLeastOneFile(paths,<span class="keyword">this</span>);
+		},
+		<span class="function"><span class="keyword">function</span> <span class="title">htmlify</span><span class="params">(err,file)</span>{</span>
+			<span class="keyword">if</span>(err) <span class="keyword">throw</span> err;
+			<span class="keyword">var</span> licence = markdown.htmlify(file);
+			<span class="keyword">return</span> <span class="string">'&lt;section id="licence"&gt;&lt;h2&gt;Licence&lt;/h2&gt;'</span> + licence + <span class="string">'&lt;/section&gt;'</span>;
+		},
+		callback
+	);
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>cwd {string} - current working directory</li>
+    <li>callback {Function} -</li>
+  </ul>
+</p><h3 alt="lib/documenters/menu.js" id="lib/documenters/menu.js">lib/documenters/menu.js</h3>
+<h4 id="cheerio-=-require(&apos;cheerio&apos;)">cheerio = require('cheerio')</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> cheerio = require(<span class="string">'cheerio'</span>);</code></pre>
+<h4 id="module.exports(content)">module.exports(content)</h4>
+<div><p>Build a HTML piece from the given HTML <code>content</code></p>
+</div><br>
+<pre><code class="language-javascript">module.exports = <span class="keyword">function</span>(content){
+	<span class="keyword">var</span> $ = cheerio.load(content);
+	<span class="keyword">var</span> menu = <span class="string">'&lt;ul&gt;'</span>;
+	<span class="keyword">var</span> struct = [];
+	$(<span class="string">'*'</span>).each(<span class="keyword">function</span>(i,element){
+		<span class="keyword">if</span>(element.name === <span class="string">'h2'</span>){
+			struct.push({ h2 : element, h3 : [] });
+		}<span class="keyword">else</span> <span class="keyword">if</span>(element.name === <span class="string">'h3'</span>){
+			struct[struct.length - <span class="number">1</span>].h3.push(element);
+		}
+	});
+	struct.forEach(<span class="keyword">function</span>(part){
+		<span class="keyword">var</span> text = $(part.h2).text();
+		<span class="keyword">var</span> href = text.toLowerCase().trim().replace(<span class="regexp">/ /g</span>,<span class="string">'-'</span>);
+		menu += <span class="string">'&lt;li&gt;&lt;a href="#'</span> + href + <span class="string">'"&gt;'</span> + text + <span class="string">'&lt;/a&gt;&lt;/li&gt;'</span>;
+		<span class="keyword">if</span>(part.h3.length &gt; <span class="number">0</span>){
+			menu += <span class="string">'&lt;ul&gt;'</span>;
+			part.h3.forEach(<span class="keyword">function</span>(element){
+				<span class="keyword">var</span> text = $(element).text();
+				<span class="keyword">var</span> href = text.toLowerCase().trim().replace(<span class="regexp">/ /g</span>,<span class="string">'-'</span>);
+				menu += <span class="string">'&lt;li&gt;&lt;a href="#'</span> + href + <span class="string">'"&gt;'</span> + text + <span class="string">'&lt;/a&gt;&lt;/li&gt;'</span>;
+			});
+			menu += <span class="string">'&lt;/ul&gt;'</span>;
+		}
+	});
+	menu += <span class="string">'&lt;/ul&gt;'</span>;
+	<span class="keyword">return</span> menu;
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>content {string} - HTML</li>
+  </ul>
+</p>
+<p><b>Returns:</b><br>
+  <ul>
+    <li>{string} HTML menu of the given `content`</li>
+  </ul>
+</p><h3 alt="lib/documenters/lib.js" id="lib/documenters/lib.js">lib/documenters/lib.js</h3>
+<h4 id="javascript-=-require(&apos;./../htmlifiers/javascript&apos;),">javascript = require('./../htmlifiers/javascript'),</h4>
+<div><p>Module dependencies</p>
+</div><br>
+<pre><code class="language-javascript"><span class="keyword">var</span> javascript = require(<span class="string">'./../htmlifiers/javascript'</span>),
+	fs = require(<span class="string">'fs'</span>),
+	step = require(<span class="string">'step'</span>),
+	readdirp = require(<span class="string">'readdirp'</span>);</code></pre>
+<h4 id="module.exports(cwd,callback)">module.exports(cwd,callback)</h4>
+<div><p>Build a html piece from the lib folder of the module in <code>cwd</code></p>
+</div><br>
+<pre><code class="language-javascript">module.exports = <span class="keyword">function</span>(cwd,callback){
+	step(
+		<span class="function"><span class="keyword">function</span> <span class="title">find</span><span class="params">()</span>{</span>
+			<span class="keyword">var</span> options = {
+				root : cwd,
+				fileFilter : <span class="string">'*.js'</span>,
+				directoryFilter : [ <span class="string">'!test'</span>, <span class="string">'!node_modules'</span>, <span class="string">'!tests'</span>, <span class="string">'!.git'</span>, <span class="string">'!examples'</span>, <span class="string">'!example'</span>, <span class="string">'!deps'</span>]
+			};
+			<span class="keyword">var</span> stream = readdirp(options);
+			<span class="keyword">var</span> entries = [];
+			stream.on(<span class="string">'data'</span>,<span class="keyword">function</span>(entry){
+				entries.push(entry);
+			});
+			stream.on(<span class="string">'error'</span>,<span class="keyword">this</span>);
+			<span class="keyword">var</span> self = <span class="keyword">this</span>;
+			stream.on(<span class="string">'end'</span>,<span class="keyword">function</span>(){
+				self(<span class="literal">null</span>,entries);
+			});
+		},
+		<span class="function"><span class="keyword">function</span> <span class="title">retrieve</span><span class="params">(err,entries)</span>{</span>
+			<span class="keyword">if</span>(err) <span class="keyword">throw</span> err;
+			<span class="keyword">var</span> self = <span class="keyword">this</span>;
+			entries.forEach(<span class="keyword">function</span>(entry){
+				<span class="keyword">var</span> onEnd = self.parallel();
+				fs.readFile(entry.fullPath,<span class="string">'utf8'</span>,<span class="keyword">function</span>(err,file){
+					<span class="keyword">if</span>(!err) entry.content = file;
+					onEnd(err,entry);
+				});
+			});
+		},
+		<span class="function"><span class="keyword">function</span> <span class="title">htmlify</span><span class="params">(err)</span>{</span>
+			<span class="keyword">if</span>(err) <span class="keyword">throw</span> err;
+			<span class="keyword">var</span> section = <span class="string">'&lt;section id="lib"&gt;&lt;h2&gt;Code documentation&lt;/h2&gt;'</span>;
+			<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">1</span>; i &lt; arguments.length; i++){
+				<span class="keyword">var</span> entry = arguments[i];
+				<span class="keyword">var</span> html = javascript.htmlify(entry.content);
+				section += <span class="string">'&lt;h3 alt="'</span> + entry.path + <span class="string">'""&gt;'</span> + entry.path  + <span class="string">'&lt;/h3&gt;'</span> + html;
+			}
+			<span class="keyword">return</span> section +  <span class="string">'&lt;/section&gt;'</span>;
+		},
+		callback
+	);
+};</code></pre>
+<p><b>Parameters:</b><br>
+  <ul>
+    <li>cwd {string} - current working directory</li>
+    <li>callback {Function} -</li>
+  </ul>
+</p><h3 alt="lib/assets/scripts/script.js" id="lib/assets/scripts/script.js">lib/assets/scripts/script.js</h3></section><section id="licence"><h2 id="licence">Licence</h2><p>Copyright © 2013, Remy Loubradou</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>The Software is provided &quot;as is&quot;, without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders X be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the Software.</p>
+<p>Except as contained in this notice, the name of the Remy Loubradou shall not be used in advertising or otherwise to promote the sale, use or other dealings in this Software without prior written authorization from the Remy Loubradou.</p>
+</section></article><br><footer><p>Brought to you by &nbsp;<a href="https://github.com/lbdremy/tusk">Tusk</a>.</p></footer></div></div></div><script>var _gaq = _gaq || [];_gaq.push(['_setAccount',  'UA-39490977-1']);_gaq.push(['_trackPageview']);(function() {var ga = document.createElement('script'); ga.type =  'text/javascript'; ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script></body>
