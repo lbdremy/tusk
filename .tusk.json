@@ -1,4 +1,6 @@
 {
 	"google-analytics-id" : "UA-39490977-1",
-	"twitter-user" : "lbdremy"
+	"twitter-user" : "lbdremy",
+	"travis" : false,
+	"gemnasium" : false
 }

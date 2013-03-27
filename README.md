@@ -39,7 +39,9 @@ Configuration file `.tusk.json`:
 ```json
 {
 	"google-analytics-id" : "UA-XXXXXXXXXXX",
-	"twitter-user" : "username"
+	"twitter-user" : "username",
+	"travis" : false,
+	"gemnasium" : false
 }
 ```
 
