@@ -9,6 +9,9 @@
 - SEO friendly (send pull request to improve it :) )
 - support google analytics
 - support custom stylesheets and scripts
+- integrate the travis badge
+- integrate the gemnasium badge
+- files in the example[s] folder are used as samples in the documentation
 
 ## Ideas of features
 
@@ -16,9 +19,7 @@
 - test suite documentation
 - code complexity documentation
 - use the CHANGELOG file
-- files in the example[s] folder are used as samples in the documentation
-- travis badge
-- gemnasium badge
+
 
 ## Usage
 
