@@ -1,0 +1,7 @@
+- for comment in comments
+	- if(comment.ignore === false)
+		h3= comment.resume.title
+		div
+			!{comment.resume.description}
+			pre
+				code(class="language-javascript") !{comment.resume.code}
